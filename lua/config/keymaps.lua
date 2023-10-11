@@ -55,10 +55,10 @@ vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { de
 vim.keymap.set("n", "<leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]esume" })
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set("n", "[x", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+vim.keymap.set("n", "]x", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+vim.keymap.set("n", "<leader>xm", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+vim.keymap.set("n", "<leader>xl", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- mini.files
 vim.api.nvim_set_keymap("n", "<leader>e", ":lua MiniFiles.open()<CR>", { silent = true, noremap = true })
