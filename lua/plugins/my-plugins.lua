@@ -158,7 +158,7 @@ return {
   -- navbuddy
   {
     "SmiteshP/nvim-navbuddy",
-    ft = { "c", "cpp", "java", "python", "typescript", "typescriptreact", "javascript" },
+    ft = { "go","c", "cpp", "java", "python", "typescript", "typescriptreact", "javascript" },
     dependencies = {
       "neovim/nvim-lspconfig",
       "SmiteshP/nvim-navic",
