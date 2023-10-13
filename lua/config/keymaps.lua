@@ -101,9 +101,6 @@ vim.api.nvim_set_keymap("n", "<leader>d", '"_d', { silent = true, noremap = true
 -- flote keymap
 vim.api.nvim_set_keymap("n", "<leader>F", ":Flote<CR>", { silent = true, noremap = true })
 
--- Markdown Preview
-vim.cmd("autocmd FileType markdown nmap <leader>mp :MarkdownPreview<CR>")
-
 -- NavBuddy
 vim.api.nvim_set_keymap("n", "<leader>n", ":Navbuddy<CR>", { silent = true, noremap = true })
 
@@ -111,7 +108,7 @@ vim.api.nvim_set_keymap("n", "<leader>n", ":Navbuddy<CR>", { silent = true, nore
 vim.api.nvim_set_keymap("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- Format
-vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>Format<cr>", { desc = "Format" })
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Format<cr>", { desc = "Format" })
 
 -- Save file
 vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
@@ -123,3 +120,7 @@ vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 -- Windows
 vim.api.nvim_set_keymap("n", "<leader>-", "<C-W>s", { desc = "Split window below", noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>|", "<C-W>v", { desc = "Split window right", noremap = true })
+
+-- Lazygit
+vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", {noremap = true, silent = true})
+
