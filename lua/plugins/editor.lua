@@ -193,11 +193,17 @@ return {
 		end
 	},
 
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = false,
+	},
+
 	-- Finds and lists all of the TODO, HACK, BUG, etc comment in your project and loads them into a browsable list.
 	{
 		"folke/todo-comments.nvim",
 		cmd = { "TodoTrouble", "TodoTelescope" },
-		event = "LazyFile",
+		event = "VimEnter",
 		config = true,
 		-- stylua: ignore
 		keys = {
@@ -208,5 +214,5 @@ return {
 			{ "<leader>st", "<cmd>TodoTelescope<cr>",                            desc = "Todo" },
 			{ "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",    desc = "Todo/Fix/Fixme" },
 		},
-	}
+	},
 }
