@@ -111,8 +111,8 @@ vim.api.nvim_set_keymap("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Format<cr>", { desc = "Format" })
 
 -- Save file
-vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
-vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
+vim.api.nvim_set_keymap("n", "<C-s>", "<cmd>w!<cr>", { desc = "Save file" })
+vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>w!<cr>", { desc = "Save file" })
 
 -- Lazy
 vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
