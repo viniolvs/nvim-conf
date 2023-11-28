@@ -23,4 +23,5 @@ require("config.lsp")
 require("config.cmp")
 
 -- colorscheme
-vim.cmd([[colorscheme catppuccin-mocha]])
+-- vim.cmd([[colorscheme catppuccin-mocha]])
+vim.cmd("colorscheme kanagawa-wave")

@@ -26,4 +26,24 @@ return {
 			})
 		end,
 	},
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		config = function()
+			require("kanagawa").setup({
+				compile = false,
+				dimInactive = false,
+				transparent = false,
+				colors = {
+					theme = {
+						all = {
+							ui = {
+								bg_gutter = "none"
+							}
+						}
+					}
+				}
+			})
+		end,
+	}
 }
