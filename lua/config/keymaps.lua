@@ -123,4 +123,3 @@ vim.api.nvim_set_keymap("n", "<leader>|", "<C-W>v", { desc = "Split window right
 
 -- Lazygit
 vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", {noremap = true, silent = true})
-

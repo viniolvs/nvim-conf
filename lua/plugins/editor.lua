@@ -147,6 +147,10 @@ return {
 
 	{
 		"echasnovski/mini.bufremove",
+		lazy = false,
+		config = function()
+			require("mini.bufremove").setup()
+		end,
 		-- stylua: ignore
 		keys = {
 			{ "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
@@ -215,4 +219,14 @@ return {
 			{ "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",    desc = "Todo/Fix/Fixme" },
 		},
 	},
+
+	{
+    "vim-scripts/BufOnly.vim",
+		cmd = "BufOnly",
+		event = "BufReadPre",
+		-- stylua: ignore
+		keys = {
+			{ "<leader>bo", "<cmd>BOnly<cr>", desc = "Buffer Only" },
+		},
+	}
 }
