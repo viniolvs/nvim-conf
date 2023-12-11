@@ -3,6 +3,7 @@ return {
 	{
 		-- Set lualine as statusline
 		"nvim-lualine/lualine.nvim",
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		-- See `:help lualine.txt`
 		config = function()
 			require("lualine").setup({
