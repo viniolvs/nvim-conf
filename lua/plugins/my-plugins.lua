@@ -1,5 +1,5 @@
 return {
-  -- NOTE: First, some plugins that don't require any configuration
+  -- NOTE: Plugins that don't require any configuration
 
   -- Git related plugins
   "tpope/vim-fugitive",
@@ -88,21 +88,6 @@ return {
     event = "BufEnter",
   },
 
-  -- Rainbow parentheses
-  {
-    "mrjones2014/nvim-ts-rainbow",
-    event = "BufReadPre",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        rainbow = {
-          enable = true,
-          extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-          max_file_lines = nil, -- Do not enable for files with more than n lines, int
-        },
-      })
-    end,
-  },
-
   -- Zen Mode
   {
     "folke/zen-mode.nvim",
@@ -159,7 +144,7 @@ return {
   -- navbuddy
   {
     "SmiteshP/nvim-navbuddy",
-    ft = { "go","c", "cpp", "java", "python", "typescript", "typescriptreact", "javascript", "prisma"},
+    ft = { "go", "c", "cpp", "java", "python", "typescript", "typescriptreact", "javascript", "prisma" },
     dependencies = {
       "neovim/nvim-lspconfig",
       "SmiteshP/nvim-navic",
