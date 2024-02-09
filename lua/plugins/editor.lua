@@ -215,5 +215,14 @@ return {
 		keys = {
 			{ "<leader>bo", "<cmd>BOnly<cr>", desc = "Buffer Only" },
 		},
+	},
+
+	{
+		"chentoast/marks.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("marks").setup()
+		end
+
 	}
 }
