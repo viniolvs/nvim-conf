@@ -32,9 +32,6 @@ require("telescope").setup({
 	},
 })
 
--- Enable telescope fzf native, if installed
-pcall(require("telescope").load_extension, "fzf")
-
 -- See `:help telescope.builtin`
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
@@ -122,4 +119,4 @@ vim.api.nvim_set_keymap("n", "<leader>-", "<C-W>s", { desc = "Split window below
 vim.api.nvim_set_keymap("n", "<leader>|", "<C-W>v", { desc = "Split window right", noremap = true })
 
 -- Lazygit
-vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", { noremap = true, silent = true })
