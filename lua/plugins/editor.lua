@@ -208,7 +208,7 @@ return {
 	},
 
 	{
-    "vim-scripts/BufOnly.vim",
+		"vim-scripts/BufOnly.vim",
 		cmd = "BufOnly",
 		event = "BufReadPre",
 		-- stylua: ignore
@@ -224,5 +224,18 @@ return {
 			require("marks").setup()
 		end
 
+	},
+
+	{
+		'VonHeikemen/searchbox.nvim',
+		lazy = false,
+		requires = {
+			{ 'MunifTanjim/nui.nvim' }
+		},
+		keys = {
+			{'<leader>ss', '<cmd>SearchBoxIncSearch<CR>', desc = 'SearchBox'},
+			{'<leader>sS', '<cmd>SearchBoxReplace<CR>', desc = 'SearchBoxReplace'},
+		}
 	}
+
 }
