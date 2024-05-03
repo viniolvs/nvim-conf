@@ -41,7 +41,10 @@ return {
 					return "<Ignore>"
 				end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
 
-				vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { buffer = bufnr, desc = "Toggle line blame" })
+				vim.keymap.set("n", "<leader>gb", require("gitsigns").toggle_current_line_blame, { buffer = bufnr, desc = "Toggle line blame" })
+				vim.keymap.set("n", "<leader>gd", require("gitsigns").diffthis, { buffer = bufnr, desc = "Diff this" })
+				vim.keymap.set("n", "<leader>gs", require("gitsigns").stage_hunk, { buffer = bufnr, desc = "Stage hunk" })
+				vim.keymap.set("n", "<leader>gu", require("gitsigns").undo_stage_hunk, { buffer = bufnr, desc = "Undo stage hunk" })
 			end,
 		},
 	},
