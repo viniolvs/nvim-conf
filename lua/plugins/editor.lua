@@ -40,6 +40,8 @@ return {
 					end)
 					return "<Ignore>"
 				end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
+
+				vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { buffer = bufnr, desc = "Toggle line blame" })
 			end,
 		},
 	},
