@@ -41,10 +41,17 @@ return {
 					return "<Ignore>"
 				end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
 
-				vim.keymap.set("n", "<leader>gb", require("gitsigns").toggle_current_line_blame, { buffer = bufnr, desc = "Toggle line blame" })
+				vim.keymap.set("n", "<leader>gb", require("gitsigns").toggle_current_line_blame,
+					{ buffer = bufnr, desc = "Toggle line blame" })
 				vim.keymap.set("n", "<leader>gd", require("gitsigns").diffthis, { buffer = bufnr, desc = "Diff this" })
 				vim.keymap.set("n", "<leader>gs", require("gitsigns").stage_hunk, { buffer = bufnr, desc = "Stage hunk" })
-				vim.keymap.set("n", "<leader>gu", require("gitsigns").undo_stage_hunk, { buffer = bufnr, desc = "Undo stage hunk" })
+				vim.keymap.set('v', '<leader>gs',
+					function() require("gitsigns").stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
+					{ buffer = bufnr, desc = "Stage hunk" })
+				vim.keymap.set("n", "<leader>gr", require("gitsigns").reset_hunk, { buffer = bufnr, desc = "Reset hunk" })
+				vim.keymap.set("v", "<leader>gr", function() require("gitsigns").reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { buffer = bufnr, desc = "Reset hunk" })
+				vim.keymap.set("n", "<leader>gu", require("gitsigns").undo_stage_hunk,
+					{ buffer = bufnr, desc = "Undo stage hunk" })
 			end,
 		},
 	},
@@ -238,8 +245,8 @@ return {
 			{ 'MunifTanjim/nui.nvim' }
 		},
 		keys = {
-			{'<leader>ss', '<cmd>SearchBoxIncSearch<CR>', desc = 'SearchBox'},
-			{'<leader>sS', '<cmd>SearchBoxReplace<CR>', desc = 'SearchBoxReplace'},
+			{ '<leader>ss', '<cmd>SearchBoxIncSearch<CR>', desc = 'SearchBox' },
+			{ '<leader>sS', '<cmd>SearchBoxReplace<CR>',   desc = 'SearchBoxReplace' },
 		}
 	}
 
