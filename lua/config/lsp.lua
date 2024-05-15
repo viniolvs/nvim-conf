@@ -57,7 +57,6 @@ local servers = {
 	rust_analyzer = {},
 	tsserver = {},
 	html = {},
-
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
@@ -87,6 +86,35 @@ mason_lspconfig.setup_handlers({
 			on_attach = on_attach,
 			settings = servers[server_name],
 			filetypes = (servers[server_name] or {}).filetypes,
+		})
+	end,
+	["tsserver"] = function()
+		local lspconfig = require("lspconfig")
+		lspconfig.tsserver.setup({
+			init_options = {
+				hostInfo = "neovim",
+				preferences = {
+					includeCompletionsForModuleExports = true,
+					includeCompletionsForImportStatements = true,
+					importModuleSpecifierPreference = "relative",
+				},
+				plugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+						languages = { "javascript", "typescript", "vue" },
+					},
+				},
+			},
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx"
+			},
+			root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
 		})
 	end,
 })
