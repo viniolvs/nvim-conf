@@ -55,7 +55,16 @@ local servers = {
 	gopls = {},
 	pyright = {},
 	rust_analyzer = {},
-	tsserver = {},
+	tsserver = {
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"javascript.jsx",
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx"
+		},
+	},
 	html = {},
 	lua_ls = {
 		Lua = {
@@ -88,33 +97,27 @@ mason_lspconfig.setup_handlers({
 			filetypes = (servers[server_name] or {}).filetypes,
 		})
 	end,
-	["tsserver"] = function()
-		local lspconfig = require("lspconfig")
-		lspconfig.tsserver.setup({
-			init_options = {
-				hostInfo = "neovim",
-				preferences = {
-					includeCompletionsForModuleExports = true,
-					includeCompletionsForImportStatements = true,
-					importModuleSpecifierPreference = "relative",
-				},
-				plugins = {
-					{
-						name = "@vue/typescript-plugin",
-						location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-						languages = { "javascript", "typescript", "vue" },
-					},
-				},
-			},
-			filetypes = {
-				"javascript",
-				"javascriptreact",
-				"javascript.jsx",
-				"typescript",
-				"typescriptreact",
-				"typescript.tsx"
-			},
-			root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")
-		})
-	end,
+	-- ["tsserver"] = function()
+	-- 	local lspconfig = require("lspconfig")
+	-- 	lspconfig.tsserver.setup({
+	-- 		capabilities = capabilities,
+	-- 		init_options = {
+	-- 			hostInfo = "neovim",
+	-- 			preferences = {
+	-- 				includeCompletionsForModuleExports = true,
+	-- 				includeCompletionsForImportStatements = true,
+	-- 				importModuleSpecifierPreference = "relative",
+	-- 			},
+	-- 			plugins = {
+	-- 				{
+	-- 					name = "@vue/typescript-plugin",
+	-- 					location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+	-- 					languages = { "javascript", "typescript", "vue" },
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 		root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
+	-- 		settings = { documentFormatting = true }
+	-- 	})
+	-- end,
 })
