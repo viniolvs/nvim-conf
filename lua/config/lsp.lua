@@ -62,7 +62,8 @@ local servers = {
 			"javascript.jsx",
 			"typescript",
 			"typescriptreact",
-			"typescript.tsx"
+			"typescript.tsx",
+			"vue"
 		},
 	},
 	html = {},
@@ -72,6 +73,11 @@ local servers = {
 			telemetry = { enable = false },
 		},
 	},
+	volar = {
+		filetypes = {
+			"vue"
+		}
+	}
 }
 
 -- Setup neovim lua configuration
@@ -98,16 +104,10 @@ mason_lspconfig.setup_handlers({
 		})
 	end,
 	-- ["tsserver"] = function()
-	-- 	local lspconfig = require("lspconfig")
-	-- 	lspconfig.tsserver.setup({
+	-- 	require 'lspconfig'.tsserver.setup({
 	-- 		capabilities = capabilities,
 	-- 		init_options = {
 	-- 			hostInfo = "neovim",
-	-- 			preferences = {
-	-- 				includeCompletionsForModuleExports = true,
-	-- 				includeCompletionsForImportStatements = true,
-	-- 				importModuleSpecifierPreference = "relative",
-	-- 			},
 	-- 			plugins = {
 	-- 				{
 	-- 					name = "@vue/typescript-plugin",
@@ -116,7 +116,16 @@ mason_lspconfig.setup_handlers({
 	-- 				},
 	-- 			},
 	-- 		},
-	-- 		root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
+	-- 		filetypes = {
+	-- 			"javascript",
+	-- 			"javascriptreact",
+	-- 			"javascript.jsx",
+	-- 			"typescript",
+	-- 			"typescriptreact",
+	-- 			"typescript.tsx",
+	-- 			"vue"
+	-- 		},
+	-- 		root_dir = require 'lspconfig'.util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
 	-- 		settings = { documentFormatting = true }
 	-- 	})
 	-- end,
