@@ -15,20 +15,6 @@ return {
 			"rafamadriz/friendly-snippets",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-
-			{
-				"MattiasMTS/cmp-dbee",
-				dependencies = {
-					{ "kndndrj/nvim-dbee" }
-				},
-				ft = "sql", -- optional but good to have
-				opts = {},  -- needed
-			},
-		},
-		opts = {
-			sources = {
-				{ "cmp-dbee" },
-			},
 		},
 	},
 }
