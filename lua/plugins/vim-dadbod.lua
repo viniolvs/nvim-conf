@@ -1,5 +1,10 @@
 return {
-  "tpope/vim-dadbod",
-  "kristijanhusak/vim-dadbod-completion",
-  "kristijanhusak/vim-dadbod-ui",
+	{
+		"kristijanhusak/vim-dadbod-ui",
+		dependencies = {
+			{ "tpope/vim-dadbod",                     lazy = true },
+			{ "kristijanhusak/vim-dadbod-completion", lazy = true, ft = { "sql", "mysql", "plsql" } },
+		},
+		cmd = { "DBUI", "DBUIFindBuffer", "DBUIToggle" },
+	},
 }
