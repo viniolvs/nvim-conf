@@ -11,6 +11,8 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
       local dap = require("dap")
+      require("dap-go").setup()
+      require("nvim-dap-virtual-text").setup()
 
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
@@ -108,6 +110,29 @@ return {
     },
     dependencies = {
       -- Install the vscode-js-debug adapter
+      "nvim-neotest/nvim-nio",
+      "williamboman/mason.nvim",
+      "theHamsta/nvim-dap-virtual-text",
+      "leoluz/nvim-dap-go",
+      {
+        "rcarriga/nvim-dap-ui",
+        config = function()
+          require("dapui").setup()
+          local dap, dapui = require("dap"), require("dapui")
+          dap.listeners.after.event_initialized["dapui_config"] = function()
+            dapui.open({})
+          end
+          dap.listeners.before.event_terminated["dapui_config"] = function()
+            dapui.close({})
+          end
+          dap.listeners.before.event_exited["dapui_config"] = function()
+            dapui.close({})
+          end
+          vim.keymap.set("n", "<space>?", function()
+            require("dapui").eval(nil, { enter = true })
+          end)
+        end,
+      },
       {
         "microsoft/vscode-js-debug",
         -- After install, build it and rename the dist directory to out
@@ -154,23 +179,5 @@ return {
         build = "./install.sh",
       },
     },
-  },
-  { "nvim-neotest/nvim-nio" },
-  {
-    "rcarriga/nvim-dap-ui",
-    requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    config = function()
-      require("dapui").setup()
-      local dap, dapui = require("dap"), require("dapui")
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open({})
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close({})
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close({})
-      end
-    end,
   },
 }
