@@ -47,15 +47,6 @@ return {
     lazy = false,
   },
 
-  -- Harpoon
-  {
-    "ThePrimeagen/harpoon",
-    lazy = false,
-    config = function()
-      require("harpoon").setup({})
-    end,
-  },
-
   -- Codeium
   {
     "Exafunction/codeium.vim",

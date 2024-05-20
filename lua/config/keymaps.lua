@@ -63,33 +63,6 @@ vim.api.nvim_set_keymap("n", "<leader>e", ":lua MiniFiles.open()<CR>", { silent 
 -- Zen mode
 vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", { silent = true, noremap = true })
 
--- Harpoon
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ht",
-	":lua require('harpoon.ui').toggle_quick_menu()<CR>",
-	{ silent = true, noremap = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ha",
-	":lua require('harpoon.mark').add_file()<CR>",
-	{ silent = true, noremap = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>hn",
-	":lua require('harpoon.ui').nav_next()<CR>",
-	{ silent = true, noremap = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>hp",
-	":lua require('harpoon.ui').nav_prev()<CR>",
-	{ silent = true, noremap = true }
-)
-vim.api.nvim_set_keymap("n", "<leader>uh", ":Telescope harpoon marks<CR>", { silent = true, noremap = true })
-
 -- replace with yanked text
 vim.api.nvim_set_keymap("n", "<leader>p", '"0p', { silent = true, noremap = true })
 -- delete without yanking
