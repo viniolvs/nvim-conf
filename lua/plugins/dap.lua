@@ -12,7 +12,7 @@ return {
     config = function()
       local dap = require("dap")
       require("dap-go").setup()
-      require("nvim-dap-virtual-text").setup()
+      require("nvim-dap-virtual-text").setup({})
 
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
@@ -72,14 +72,14 @@ return {
     end,
     keys = {
       {
-        "<leader>dO",
+        "<F7>",
         function()
           require("dap").step_out()
         end,
         desc = "Step Out",
       },
       {
-        "<leader>do",
+        "<F6>",
         function()
           require("dap").step_over()
         end,
@@ -93,7 +93,7 @@ return {
         desc = "Toggle Breakpoint",
       },
       {
-        "<leader>da",
+        "<F5>",
         function()
           if vim.fn.filereadable(".vscode/launch.json") then
             local dap_vscode = require("dap.ext.vscode")
@@ -107,6 +107,13 @@ return {
         end,
         desc = "Run with Args",
       },
+      {
+        "<F10>",
+        function()
+          require("dap").terminate()
+        end,
+        desc = "Terminate",
+      }
     },
     dependencies = {
       -- Install the vscode-js-debug adapter
@@ -128,10 +135,42 @@ return {
           dap.listeners.before.event_exited["dapui_config"] = function()
             dapui.close({})
           end
-          vim.keymap.set("n", "<space>?", function()
-            require("dapui").eval(nil, { enter = true })
-          end)
         end,
+        keys = {
+          {
+            "<leader>dt",
+            function()
+              require("dapui").toggle()
+            end,
+            desc = "Toggle DAP UI",
+          },
+          {
+            "<leader>dv",
+            function()
+              require("dapui").float_element("scopes", {
+                title = "DAP UI Scopes",
+                enter = true,
+                width = 1600,
+                height = 1000,
+                position = "center",
+              })
+            end,
+            desc = "View scopes",
+          },
+          {
+            "<leader>de",
+            function()
+              require("dapui").eval(nil, {
+                context = "repl",
+                enter = true,
+                width = 500,
+                height = 700,
+                position = "center",
+              })
+            end,
+            desc = "Evaluate expression",
+          }
+        }
       },
       {
         "microsoft/vscode-js-debug",
