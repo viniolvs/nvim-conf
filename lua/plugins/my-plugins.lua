@@ -55,19 +55,19 @@ return {
       vim.g.codeium_no_map_tab = 1
       vim.keymap.set("i", "<C-a>", function()
         return vim.fn["codeium#Accept"]()
-      end, { expr = true })
+      end, { expr = true, silent = true })
       vim.keymap.set("i", "<C-.>", function()
         return vim.fn["codeium#CycleCompletions"](1)
-      end, { expr = true })
+      end, { expr = true, silent = true })
       vim.keymap.set("i", "<C-,>", function()
         return vim.fn["codeium#CycleCompletions"](-1)
-      end, { expr = true })
+      end, { expr = true, silent = true })
       vim.keymap.set("i", "<C-c>", function()
         return vim.fn["codeium#Clear"]()
-      end, { expr = true })
-      vim.keymap.set("i", "<cmd>chat<cr>", function()
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-m>", function()
         return vim.fn["codeium#Chat"]()
-      end, { expr = true })
+      end, { expr = true, silent = true })
     end,
   },
 
