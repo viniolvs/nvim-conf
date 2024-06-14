@@ -50,7 +50,8 @@ return {
   -- Codeium
   {
     "Exafunction/codeium.vim",
-    event = "BufEnter",
+    event = "InsertEnter",
+    version = "1.8.37",
     config = function()
       vim.g.codeium_no_map_tab = 1
       vim.keymap.set("i", "<C-a>", function()
