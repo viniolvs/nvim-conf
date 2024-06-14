@@ -5,6 +5,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		-- See `:help lualine.txt`
+		version = "1.8.37",
 		config = function()
 			require("lualine").setup({
 				options = {
