@@ -61,7 +61,7 @@ vim.keymap.set("n", "<leader>xl", vim.diagnostic.setloclist, { desc = "Open diag
 vim.api.nvim_set_keymap("n", "<leader>e", ":lua MiniFiles.open()<CR>", { silent = true, noremap = true })
 
 -- Zen mode
-vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>zm", ":ZenMode<CR>", { silent = true, noremap = true })
 
 -- replace with yanked text
 vim.api.nvim_set_keymap("n", "<leader>p", '"0p', { silent = true, noremap = true })
