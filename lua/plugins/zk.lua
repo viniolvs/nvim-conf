@@ -23,6 +23,11 @@ return {
 					},
 				},
 			})
-		end
+		end,
+		keys = {
+			{ "<leader>zk", "<cmd>ZkNotes<cr>", desc = "ZK Notes" },
+			{ "<leader>zl", "<cmd>ZkLinks<cr>", desc = "ZK Links" },
+			{ "<leader>zn", "<cmd>ZkNew<cr>",   desc = "ZK New Note" },
+		},
 	}
 }
