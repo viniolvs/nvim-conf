@@ -49,7 +49,9 @@ return {
 					function() require("gitsigns").stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
 					{ buffer = bufnr, desc = "Stage hunk" })
 				vim.keymap.set("n", "<leader>gr", require("gitsigns").reset_hunk, { buffer = bufnr, desc = "Reset hunk" })
-				vim.keymap.set("v", "<leader>gr", function() require("gitsigns").reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { buffer = bufnr, desc = "Reset hunk" })
+				vim.keymap.set("v", "<leader>gr",
+					function() require("gitsigns").reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
+					{ buffer = bufnr, desc = "Reset hunk" })
 				vim.keymap.set("n", "<leader>gu", require("gitsigns").undo_stage_hunk,
 					{ buffer = bufnr, desc = "Undo stage hunk" })
 			end,
@@ -200,6 +202,24 @@ return {
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		lazy = false,
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
 	},
 
 	-- Finds and lists all of the TODO, HACK, BUG, etc comment in your project and loads them into a browsable list.
@@ -249,5 +269,4 @@ return {
 			{ '<leader>sS', '<cmd>SearchBoxReplace<CR>',   desc = 'SearchBoxReplace' },
 		}
 	}
-
 }
