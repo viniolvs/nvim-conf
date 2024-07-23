@@ -99,3 +99,6 @@ vim.api.nvim_set_keymap("n", "<leader>dd", "<cmd>DBUIToggle<cr>", { noremap = tr
 
 -- New tab
 vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>tabnew<cr>", { noremap = true, silent = true })
+
+-- Esc
+vim.keymap.set( "i", "jk", "<esc>")
