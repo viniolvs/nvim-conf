@@ -86,7 +86,7 @@ return {
         desc = "Step Over",
       },
       {
-        "<leader>db",
+        "<F4>",
         function()
           require("dap").toggle_breakpoint()
         end,
@@ -138,14 +138,14 @@ return {
         end,
         keys = {
           {
-            "<leader>dt",
+            "<F3>",
             function()
               require("dapui").toggle()
             end,
             desc = "Toggle DAP UI",
           },
           {
-            "<leader>dv",
+            "<F8>",
             function()
               require("dapui").float_element("scopes", {
                 title = "DAP UI Scopes",
@@ -158,7 +158,7 @@ return {
             desc = "View scopes",
           },
           {
-            "<leader>de",
+            "<F9>",
             function()
               require("dapui").eval(nil, {
                 context = "repl",
