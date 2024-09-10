@@ -19,13 +19,6 @@ return {
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = { },
-					lualine_x = {
-						"fileformat",
-						function()
-							return vim.fn["codeium#GetStatusString"]()
-						end,
-						"filetype"
-					},
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
 				},
