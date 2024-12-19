@@ -6,7 +6,7 @@ function Lazygit_toggle()
 end
 
 -- Ativa cursorline ao entrar no buffer
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd("WinEnter", {
   pattern = "*", -- Aplica a todos os buffers
   callback = function()
     vim.opt_local.cursorline = true
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- Desativa cursorline ao sair do buffer
-vim.api.nvim_create_autocmd("BufLeave", {
+vim.api.nvim_create_autocmd("WinLeave", {
   pattern = "*", -- Aplica a todos os buffers
   callback = function()
     vim.opt_local.cursorline = false
