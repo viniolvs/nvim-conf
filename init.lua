@@ -24,6 +24,6 @@ require("config.cmp")
 
 -- colorscheme
 -- vim.cmd([[colorscheme catppuccin-mocha]])
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme kanagawa-wave")
 -- vim.opt.background = "dark"
 -- vim.cmd("colorscheme oxocarbon")
