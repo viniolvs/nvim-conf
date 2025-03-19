@@ -50,12 +50,24 @@ end
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
+local mason_registry = require("mason-registry")
+local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path()
+
 local servers = {
 	clangd = {},
 	gopls = {},
 	pyright = {},
 	rust_analyzer = {},
 	ts_ls = {
+		init_options = {
+			plugins = {
+				{
+					name = '@vue/typescript-plugin',
+					location = vue_language_server_path,
+					languages = { 'vue' },
+				},
+			},
+		},
 		filetypes = {
 			"javascript",
 			"javascriptreact",
@@ -73,11 +85,6 @@ local servers = {
 			telemetry = { enable = false },
 		},
 	},
-	volar = {
-		filetypes = {
-			"vue"
-		}
-	}
 }
 
 -- Setup neovim lua configuration
