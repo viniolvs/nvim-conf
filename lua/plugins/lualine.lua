@@ -39,9 +39,8 @@ return {
 								newfile = '+', -- Text to show for newly created file before first write
 							}
 						},
-						"diagnostics",
 					},
-					lualine_c = {},
+					lualine_c = { "diagnostics" },
 					lualine_x = { "encoding", "fileformat", "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
