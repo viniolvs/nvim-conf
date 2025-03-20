@@ -33,7 +33,7 @@ return {
 							shorting_target = 40, -- Shortens path to leave 40 spaces in the window
 							-- for other components. (terrible name, any suggestions?)
 							symbols = {
-								modified = '~', -- Text to show when the file is modified.
+								modified = '●', -- Text to show when the file is modified.
 								readonly = '-', -- Text to show when the file is non-modifiable or readonly.
 								unnamed = '[No Name]', -- Text to show for unnamed buffers.
 								newfile = '+', -- Text to show for newly created file before first write
@@ -41,7 +41,17 @@ return {
 						},
 					},
 					lualine_c = { "diagnostics" },
-					lualine_x = { "encoding", "fileformat", "filetype" },
+					lualine_x = {
+						{
+							"filetype",
+							colored = true,     -- Displays filetype icon in color if set to true
+							icon_only = true,  -- Display only an icon for filetype
+							icon = { align = 'right' }, -- Display filetype icon on the right hand side
+							-- icon =    {'X', align='right'}
+							-- Icon string ^ in table is ignored in filetype component
+						},
+						"fileformat",
+					},
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
 				},
