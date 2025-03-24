@@ -1,6 +1,7 @@
 return {
 	{
 		"rest-nvim/rest.nvim",
+		lazy = false,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			opts = function(_, opts)
@@ -8,16 +9,9 @@ return {
 				table.insert(opts.ensure_installed, "http")
 			end,
 		},
-
-		config = function()
-			-- first load extension
-			require("telescope").load_extension("rest")
-
-			-- keymaps
-			-- Telescope rest select_env
-			vim.keymap.set("n", "<C-e>", function()
-				return require("telescope").extensions.rest.select_env()
-			end, { desc = "Rest: Select environment" })
-		end,
+		keys = {
+			{ "<leader>rr", "<cmd>Rest run<cr>",        desc = "Rest: Run" },
+			{ "<leader>re", "<cmd>Rest env select<cr>", desc = "Rest: Select environment" },
+		}
 	}
 }
