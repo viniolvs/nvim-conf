@@ -109,8 +109,5 @@ vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", { no
 -- Dadbod
 vim.api.nvim_set_keymap("n", "<leader>dd", "<cmd>DBUIToggle<cr>", { noremap = true, silent = true })
 
--- New tab
-vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>tabnew<cr>", { noremap = true, silent = true })
-
 -- Esc
 vim.keymap.set("i", "jk", "<esc>")
