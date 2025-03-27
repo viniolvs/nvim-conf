@@ -175,6 +175,18 @@ return {
     end,
   },
 
+  {
+    "reybits/scratch.nvim",
+    lazy = true,
+    keys = {
+      { "<leader>ts", "<cmd>ScratchToggle<cr>", desc = "Toggle Scratch Buffer" },
+    },
+    cmd = {
+      "ScratchToggle",
+    },
+    opts = {},
+  },
+
   -- markdown notes for projects
   {
     "JellyApple102/flote.nvim",
