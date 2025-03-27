@@ -112,30 +112,4 @@ mason_lspconfig.setup_handlers({
 			filetypes = (servers[server_name] or {}).filetypes,
 		})
 	end,
-	-- ["tsserver"] = function()
-	-- 	require 'lspconfig'.tsserver.setup({
-	-- 		capabilities = capabilities,
-	-- 		init_options = {
-	-- 			hostInfo = "neovim",
-	-- 			plugins = {
-	-- 				{
-	-- 					name = "@vue/typescript-plugin",
-	-- 					location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-	-- 					languages = { "javascript", "typescript", "vue" },
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 		filetypes = {
-	-- 			"javascript",
-	-- 			"javascriptreact",
-	-- 			"javascript.jsx",
-	-- 			"typescript",
-	-- 			"typescriptreact",
-	-- 			"typescript.tsx",
-	-- 			"vue"
-	-- 		},
-	-- 		root_dir = require 'lspconfig'.util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
-	-- 		settings = { documentFormatting = true }
-	-- 	})
-	-- end,
 })
